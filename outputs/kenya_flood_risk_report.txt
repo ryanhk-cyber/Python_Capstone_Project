@@ -1,0 +1,436 @@
+KENYA FLOOD RISK REPORT
+Generated: 2026-05-14 23:55:28
+================================================================
+
+County:              Baringo
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Baringo Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Bomet
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Bomet Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Bungoma
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Bungoma Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Busia
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Busia Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Elgeyo-Marakwet
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Elgeyo-Marakwet Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Embu
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Embu Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Garissa
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Garissa Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Homa Bay
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Homa Bay Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Isiolo
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Isiolo Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Kajiado
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Kajiado Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Kakamega
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Kakamega Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Kericho
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Kericho Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Kiambu
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Kiambu Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Kilifi
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Kilifi Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Kirinyaga
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Kirinyaga Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Kisii
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Kisii Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Kisumu
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Kisumu Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Kitui
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Kitui Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Konde (Kwale)
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Konde (Kwale) Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Laikipia
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Laikipia Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Lamu
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Lamu Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Machakos
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Machakos Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Makueni
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Makueni Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Mandera
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Mandera Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Marsabit
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Marsabit Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Meru
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Meru Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Migori
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Migori Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Mombasa
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Mombasa Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Murang'a
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Murang'a Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Nairobi
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Nairobi Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Nakuru
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Nakuru Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Nandi
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Nandi Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Narok
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Narok Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Nyamira
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Nyamira Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Nyeri
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Nyeri Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Samburu
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Samburu Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Siaya
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Siaya Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Taita-Taveta
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Taita-Taveta Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Tana River
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Tana River Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Tharaka-Nithi
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Tharaka-Nithi Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Trans Nzoia
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Trans Nzoia Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Turkana
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Turkana Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Uasin Gishu
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Uasin Gishu Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Vihiga
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Vihiga Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Wajir
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Wajir Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              West Pokot
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    West Pokot Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Baraingo
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Baraingo Central — High risk sub-county (stub dataset).
+----------------------------------------
+County:              Kiambu Central
+Risk Level:          LOW (FRI 26.27)
+7-day Forecast:      0.0 mm
+Peak Daily:          0.0 mm
+Soil Moisture:       0.2000 m³/m³
+14-day Antecedent:   0.0 mm
+ML Flood Prob:       0.455
+Worst Sub-County:    Kiambu Central Central — High risk sub-county (stub dataset).
+----------------------------------------

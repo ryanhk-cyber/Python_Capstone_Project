@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_239682218c946022bb022d201656d75a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    <div style='position:fixed;bottom:30px;left:30px;z-index:1000;background:white;padding:12px 16px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-family:sans-serif;font-size:13px'><b>Flood Risk Level</b><br><span style='color:#7b241c'>●</span> Critical &nbsp;<span style='color:#e74c3c'>●</span> High &nbsp;<span style='color:#f39c12'>●</span> Medium &nbsp;<span style='color:#2ecc71'>●</span> Low</div>
+    
+            <div class="folium-map" id="map_239682218c946022bb022d201656d75a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_239682218c946022bb022d201656d75a = L.map(
+                "map_239682218c946022bb022d201656d75a",
+                {
+                    center: [-0.023, 37.906],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0b3d6cc000a824efdcd1463a4abd1f26 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_0b3d6cc000a824efdcd1463a4abd1f26.addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+            var circle_marker_8c7968540f8c8742c188c815b1891f32 = L.circleMarker(
+                [-0.264, 35.329],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_51c8d93f41b0d4a8c8e803e1622bdfd2 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_809961eb03e9c6aaa79542e745136a8b = $(`<div id="html_809961eb03e9c6aaa79542e745136a8b" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Bomet</b><br><span style='color:yellow;font-weight:bold'>🟡 MEDIUM</span><br><hr style='margin:4px 0'>FRI Score: <b>49.49</b> / 100<br>7-day rain: <b>17.5 mm</b><br>Peak day: <b>7.2 mm</b><br>Soil moisture: <b>0.308 m³/m³</b><br>14-day antecedent: <b>130.3 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_51c8d93f41b0d4a8c8e803e1622bdfd2.setContent(html_809961eb03e9c6aaa79542e745136a8b);
+            
+        
+
+        circle_marker_8c7968540f8c8742c188c815b1891f32.bindPopup(popup_51c8d93f41b0d4a8c8e803e1622bdfd2)
+        ;
+
+        
+    
+    
+            circle_marker_8c7968540f8c8742c188c815b1891f32.bindTooltip(
+                `<div>
+                     Bomet — MEDIUM (FRI: 49.49)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c8f628ee87d2abe302c89f8bfbfa1c40 = L.circleMarker(
+                [0.5602, 34.5619],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_4d45f9a6d327fb8637b8ccde4002616b = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_a0774061f5a41ec850102169af579b66 = $(`<div id="html_a0774061f5a41ec850102169af579b66" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Bungoma</b><br><span style='color:yellow;font-weight:bold'>🟡 MEDIUM</span><br><hr style='margin:4px 0'>FRI Score: <b>48.41</b> / 100<br>7-day rain: <b>54.5 mm</b><br>Peak day: <b>13.5 mm</b><br>Soil moisture: <b>0.262 m³/m³</b><br>14-day antecedent: <b>167.4 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_4d45f9a6d327fb8637b8ccde4002616b.setContent(html_a0774061f5a41ec850102169af579b66);
+            
+        
+
+        circle_marker_c8f628ee87d2abe302c89f8bfbfa1c40.bindPopup(popup_4d45f9a6d327fb8637b8ccde4002616b)
+        ;
+
+        
+    
+    
+            circle_marker_c8f628ee87d2abe302c89f8bfbfa1c40.bindTooltip(
+                `<div>
+                     Bungoma — MEDIUM (FRI: 48.41)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3d074a0e7732458da248478f217379d6 = L.circleMarker(
+                [0.4853, 34.2477],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_8a3dd5049fb6bb8a7db2008d6c81c521 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_21117ad259a398e6869891783f544200 = $(`<div id="html_21117ad259a398e6869891783f544200" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Busia</b><br><span style='color:yellow;font-weight:bold'>🟡 MEDIUM</span><br><hr style='margin:4px 0'>FRI Score: <b>46.37</b> / 100<br>7-day rain: <b>37.2 mm</b><br>Peak day: <b>12.7 mm</b><br>Soil moisture: <b>0.235 m³/m³</b><br>14-day antecedent: <b>114.4 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_8a3dd5049fb6bb8a7db2008d6c81c521.setContent(html_21117ad259a398e6869891783f544200);
+            
+        
+
+        circle_marker_3d074a0e7732458da248478f217379d6.bindPopup(popup_8a3dd5049fb6bb8a7db2008d6c81c521)
+        ;
+
+        
+    
+    
+            circle_marker_3d074a0e7732458da248478f217379d6.bindTooltip(
+                `<div>
+                     Busia — MEDIUM (FRI: 46.37)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a381ccd96b7c2469f1608b76e3ffbc76 = L.circleMarker(
+                [0.4667, 35.95],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_7e57ef49f7e9ed60b547ba97269d175e = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_d6cdbffd88f2f34669710ec7edbaa505 = $(`<div id="html_d6cdbffd88f2f34669710ec7edbaa505" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Baringo</b><br><span style='color:yellow;font-weight:bold'>🟡 MEDIUM</span><br><hr style='margin:4px 0'>FRI Score: <b>44.53</b> / 100<br>7-day rain: <b>8.4 mm</b><br>Peak day: <b>2.0 mm</b><br>Soil moisture: <b>0.292 m³/m³</b><br>14-day antecedent: <b>95.7 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_7e57ef49f7e9ed60b547ba97269d175e.setContent(html_d6cdbffd88f2f34669710ec7edbaa505);
+            
+        
+
+        circle_marker_a381ccd96b7c2469f1608b76e3ffbc76.bindPopup(popup_7e57ef49f7e9ed60b547ba97269d175e)
+        ;
+
+        
+    
+    
+            circle_marker_a381ccd96b7c2469f1608b76e3ffbc76.bindTooltip(
+                `<div>
+                     Baringo — MEDIUM (FRI: 44.53)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f9175aa245487a7d6cf7a53c6bae0a7b = L.circleMarker(
+                [0.823, 35.354],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_fff63d01537c8cc78236790c34ee2c78 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_cb95d595dc613a7dca77590529895f28 = $(`<div id="html_cb95d595dc613a7dca77590529895f28" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Elgeyo-Marakwet</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_fff63d01537c8cc78236790c34ee2c78.setContent(html_cb95d595dc613a7dca77590529895f28);
+            
+        
+
+        circle_marker_f9175aa245487a7d6cf7a53c6bae0a7b.bindPopup(popup_fff63d01537c8cc78236790c34ee2c78)
+        ;
+
+        
+    
+    
+            circle_marker_f9175aa245487a7d6cf7a53c6bae0a7b.bindTooltip(
+                `<div>
+                     Elgeyo-Marakwet — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2f25082453ae43fdf48a9d5db3943cd5 = L.circleMarker(
+                [-0.565, 37.45],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_c38c9f3ffda1809282b595274c22d76e = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_1298d78e11dd493257b3b70c39b86cd8 = $(`<div id="html_1298d78e11dd493257b3b70c39b86cd8" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Embu</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_c38c9f3ffda1809282b595274c22d76e.setContent(html_1298d78e11dd493257b3b70c39b86cd8);
+            
+        
+
+        circle_marker_2f25082453ae43fdf48a9d5db3943cd5.bindPopup(popup_c38c9f3ffda1809282b595274c22d76e)
+        ;
+
+        
+    
+    
+            circle_marker_2f25082453ae43fdf48a9d5db3943cd5.bindTooltip(
+                `<div>
+                     Embu — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ad858451165981f745f198389d38c150 = L.circleMarker(
+                [-0.4544, 39.6646],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_20846003e8f2bad2e6277d455c3c70aa = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_44c9b5959c0691dcc81df7a4f833398f = $(`<div id="html_44c9b5959c0691dcc81df7a4f833398f" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Garissa</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_20846003e8f2bad2e6277d455c3c70aa.setContent(html_44c9b5959c0691dcc81df7a4f833398f);
+            
+        
+
+        circle_marker_ad858451165981f745f198389d38c150.bindPopup(popup_20846003e8f2bad2e6277d455c3c70aa)
+        ;
+
+        
+    
+    
+            circle_marker_ad858451165981f745f198389d38c150.bindTooltip(
+                `<div>
+                     Garissa — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_41a1f317de2c90390302466013c2e521 = L.circleMarker(
+                [-0.4548, 34.5537],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_0104b90d805ac6c49cb32ee3fb9d7761 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_7338530533031c2cf28746c46da7163d = $(`<div id="html_7338530533031c2cf28746c46da7163d" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Homa Bay</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_0104b90d805ac6c49cb32ee3fb9d7761.setContent(html_7338530533031c2cf28746c46da7163d);
+            
+        
+
+        circle_marker_41a1f317de2c90390302466013c2e521.bindPopup(popup_0104b90d805ac6c49cb32ee3fb9d7761)
+        ;
+
+        
+    
+    
+            circle_marker_41a1f317de2c90390302466013c2e521.bindTooltip(
+                `<div>
+                     Homa Bay — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8e840da8d328b2398c0170cf5ff2a802 = L.circleMarker(
+                [0.3544, 37.55],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_5129fee0f92edd8ebb662ac26a50c055 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_64cba06d7198903a5d9cea6878276cdc = $(`<div id="html_64cba06d7198903a5d9cea6878276cdc" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Isiolo</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_5129fee0f92edd8ebb662ac26a50c055.setContent(html_64cba06d7198903a5d9cea6878276cdc);
+            
+        
+
+        circle_marker_8e840da8d328b2398c0170cf5ff2a802.bindPopup(popup_5129fee0f92edd8ebb662ac26a50c055)
+        ;
+
+        
+    
+    
+            circle_marker_8e840da8d328b2398c0170cf5ff2a802.bindTooltip(
+                `<div>
+                     Isiolo — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2d600e41cf00eb66b2550bcafa84afec = L.circleMarker(
+                [-2.0417, 36.7],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_3fa4167e553384536368700678560620 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_28c7cf1cdd462a7598ab481a95f29bc2 = $(`<div id="html_28c7cf1cdd462a7598ab481a95f29bc2" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Kajiado</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_3fa4167e553384536368700678560620.setContent(html_28c7cf1cdd462a7598ab481a95f29bc2);
+            
+        
+
+        circle_marker_2d600e41cf00eb66b2550bcafa84afec.bindPopup(popup_3fa4167e553384536368700678560620)
+        ;
+
+        
+    
+    
+            circle_marker_2d600e41cf00eb66b2550bcafa84afec.bindTooltip(
+                `<div>
+                     Kajiado — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_bc10ee0cade970d42eb3a7750c6273fb = L.circleMarker(
+                [0.292, 34.746],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_d745b4d9383b4834bafb6b7b4e80d819 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_4641c934ea3030f08d8b91e2db12840b = $(`<div id="html_4641c934ea3030f08d8b91e2db12840b" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Kakamega</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_d745b4d9383b4834bafb6b7b4e80d819.setContent(html_4641c934ea3030f08d8b91e2db12840b);
+            
+        
+
+        circle_marker_bc10ee0cade970d42eb3a7750c6273fb.bindPopup(popup_d745b4d9383b4834bafb6b7b4e80d819)
+        ;
+
+        
+    
+    
+            circle_marker_bc10ee0cade970d42eb3a7750c6273fb.bindTooltip(
+                `<div>
+                     Kakamega — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1aafaae9e3849b93f2f48741e271438f = L.circleMarker(
+                [-0.359, 35.273],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_cf98cca7d938227e030fa84bca732a01 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_e6fd5acb10a430458dd3ff8410800e8e = $(`<div id="html_e6fd5acb10a430458dd3ff8410800e8e" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Kericho</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_cf98cca7d938227e030fa84bca732a01.setContent(html_e6fd5acb10a430458dd3ff8410800e8e);
+            
+        
+
+        circle_marker_1aafaae9e3849b93f2f48741e271438f.bindPopup(popup_cf98cca7d938227e030fa84bca732a01)
+        ;
+
+        
+    
+    
+            circle_marker_1aafaae9e3849b93f2f48741e271438f.bindTooltip(
+                `<div>
+                     Kericho — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_71fa2d572d7e9c0146182624113d7201 = L.circleMarker(
+                [-1.214, 36.891],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_cd51a20517169560d5686e8491813944 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_26ffd8df2809528b858178311809f486 = $(`<div id="html_26ffd8df2809528b858178311809f486" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Kiambu</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_cd51a20517169560d5686e8491813944.setContent(html_26ffd8df2809528b858178311809f486);
+            
+        
+
+        circle_marker_71fa2d572d7e9c0146182624113d7201.bindPopup(popup_cd51a20517169560d5686e8491813944)
+        ;
+
+        
+    
+    
+            circle_marker_71fa2d572d7e9c0146182624113d7201.bindTooltip(
+                `<div>
+                     Kiambu — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_87b45607359cc6cf756ad33b159a4e69 = L.circleMarker(
+                [-3.323, 39.835],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_8e5ec5c50b0c7b1ba7c22589bb47b263 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_ab1268d152eec762f3e6559655956584 = $(`<div id="html_ab1268d152eec762f3e6559655956584" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Kilifi</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_8e5ec5c50b0c7b1ba7c22589bb47b263.setContent(html_ab1268d152eec762f3e6559655956584);
+            
+        
+
+        circle_marker_87b45607359cc6cf756ad33b159a4e69.bindPopup(popup_8e5ec5c50b0c7b1ba7c22589bb47b263)
+        ;
+
+        
+    
+    
+            circle_marker_87b45607359cc6cf756ad33b159a4e69.bindTooltip(
+                `<div>
+                     Kilifi — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b6be7bb707696b89984af40b0d7ef407 = L.circleMarker(
+                [-0.3035, 37.224],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_6b0e5cf224c4aaa91fdd539754230c43 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_3ad37457da4659137f61598c97c81e2f = $(`<div id="html_3ad37457da4659137f61598c97c81e2f" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Kirinyaga</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_6b0e5cf224c4aaa91fdd539754230c43.setContent(html_3ad37457da4659137f61598c97c81e2f);
+            
+        
+
+        circle_marker_b6be7bb707696b89984af40b0d7ef407.bindPopup(popup_6b0e5cf224c4aaa91fdd539754230c43)
+        ;
+
+        
+    
+    
+            circle_marker_b6be7bb707696b89984af40b0d7ef407.bindTooltip(
+                `<div>
+                     Kirinyaga — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d1f0709345d8bd9fb68506c244213885 = L.circleMarker(
+                [-0.6843, 34.746],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_aaa3e76db925344b3289973842f98d91 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_ca40948075462c67f3d28ea74717e1b3 = $(`<div id="html_ca40948075462c67f3d28ea74717e1b3" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Kisii</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_aaa3e76db925344b3289973842f98d91.setContent(html_ca40948075462c67f3d28ea74717e1b3);
+            
+        
+
+        circle_marker_d1f0709345d8bd9fb68506c244213885.bindPopup(popup_aaa3e76db925344b3289973842f98d91)
+        ;
+
+        
+    
+    
+            circle_marker_d1f0709345d8bd9fb68506c244213885.bindTooltip(
+                `<div>
+                     Kisii — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1e5ee7343e576f9ad720dfb8af9c5cb7 = L.circleMarker(
+                [-0.0917, 34.746],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_6b3caafcf076ebb632af6333ce3c3835 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_8f71518e800a9dc943dc8f8e32ffe04f = $(`<div id="html_8f71518e800a9dc943dc8f8e32ffe04f" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Kisumu</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_6b3caafcf076ebb632af6333ce3c3835.setContent(html_8f71518e800a9dc943dc8f8e32ffe04f);
+            
+        
+
+        circle_marker_1e5ee7343e576f9ad720dfb8af9c5cb7.bindPopup(popup_6b3caafcf076ebb632af6333ce3c3835)
+        ;
+
+        
+    
+    
+            circle_marker_1e5ee7343e576f9ad720dfb8af9c5cb7.bindTooltip(
+                `<div>
+                     Kisumu — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6bac9795313c8e904b8ec02b230ed3f8 = L.circleMarker(
+                [-1.303, 38.019],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_49e5f5343f0608587841b26ddca3e6e7 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_5f3951ba7c9fef06122557f84cf5ca00 = $(`<div id="html_5f3951ba7c9fef06122557f84cf5ca00" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Kitui</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_49e5f5343f0608587841b26ddca3e6e7.setContent(html_5f3951ba7c9fef06122557f84cf5ca00);
+            
+        
+
+        circle_marker_6bac9795313c8e904b8ec02b230ed3f8.bindPopup(popup_49e5f5343f0608587841b26ddca3e6e7)
+        ;
+
+        
+    
+    
+            circle_marker_6bac9795313c8e904b8ec02b230ed3f8.bindTooltip(
+                `<div>
+                     Kitui — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3a1bd6cf696fed7082bb696fb988c036 = L.circleMarker(
+                [-4.2667, 39.498],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_98fef5ba8a1648e7199c7cd1536ae44c = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_224db0b4ead94b2ff541e3eb6ffaef47 = $(`<div id="html_224db0b4ead94b2ff541e3eb6ffaef47" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Konde (Kwale)</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_98fef5ba8a1648e7199c7cd1536ae44c.setContent(html_224db0b4ead94b2ff541e3eb6ffaef47);
+            
+        
+
+        circle_marker_3a1bd6cf696fed7082bb696fb988c036.bindPopup(popup_98fef5ba8a1648e7199c7cd1536ae44c)
+        ;
+
+        
+    
+    
+            circle_marker_3a1bd6cf696fed7082bb696fb988c036.bindTooltip(
+                `<div>
+                     Konde (Kwale) — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_13d7a9cb705ed1f8c1ed593d05e2c471 = L.circleMarker(
+                [0.321, 36.94],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_bee6eb9f0bff1db047704ffb2e8fe7a2 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_e3d7e89b53b52726e37b519a2b696806 = $(`<div id="html_e3d7e89b53b52726e37b519a2b696806" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Laikipia</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_bee6eb9f0bff1db047704ffb2e8fe7a2.setContent(html_e3d7e89b53b52726e37b519a2b696806);
+            
+        
+
+        circle_marker_13d7a9cb705ed1f8c1ed593d05e2c471.bindPopup(popup_bee6eb9f0bff1db047704ffb2e8fe7a2)
+        ;
+
+        
+    
+    
+            circle_marker_13d7a9cb705ed1f8c1ed593d05e2c471.bindTooltip(
+                `<div>
+                     Laikipia — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e213cd319140ab7a58b254a1ba77185a = L.circleMarker(
+                [-2.2667, 40.9067],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_092c7a8edde3d289565fb890413e73ec = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_c44f6375778a56e60e4683ac51c919da = $(`<div id="html_c44f6375778a56e60e4683ac51c919da" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Lamu</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_092c7a8edde3d289565fb890413e73ec.setContent(html_c44f6375778a56e60e4683ac51c919da);
+            
+        
+
+        circle_marker_e213cd319140ab7a58b254a1ba77185a.bindPopup(popup_092c7a8edde3d289565fb890413e73ec)
+        ;
+
+        
+    
+    
+            circle_marker_e213cd319140ab7a58b254a1ba77185a.bindTooltip(
+                `<div>
+                     Lamu — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_eeb6dd554856ce872fbb5cb686353f15 = L.circleMarker(
+                [-1.469, 37.259],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_b99d622a93843434c68109218b0fdb3d = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_dd3cd0444e415a0a9daf12dd916140fc = $(`<div id="html_dd3cd0444e415a0a9daf12dd916140fc" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Machakos</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_b99d622a93843434c68109218b0fdb3d.setContent(html_dd3cd0444e415a0a9daf12dd916140fc);
+            
+        
+
+        circle_marker_eeb6dd554856ce872fbb5cb686353f15.bindPopup(popup_b99d622a93843434c68109218b0fdb3d)
+        ;
+
+        
+    
+    
+            circle_marker_eeb6dd554856ce872fbb5cb686353f15.bindTooltip(
+                `<div>
+                     Machakos — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_01d0503ff0c5ae1d50e9d2bb49bd0973 = L.circleMarker(
+                [-1.798, 37.899],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_fec8572f7f5d792804bc43d0e6d62010 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_5c971ebe049292f7fac512c5785905fe = $(`<div id="html_5c971ebe049292f7fac512c5785905fe" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Makueni</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_fec8572f7f5d792804bc43d0e6d62010.setContent(html_5c971ebe049292f7fac512c5785905fe);
+            
+        
+
+        circle_marker_01d0503ff0c5ae1d50e9d2bb49bd0973.bindPopup(popup_fec8572f7f5d792804bc43d0e6d62010)
+        ;
+
+        
+    
+    
+            circle_marker_01d0503ff0c5ae1d50e9d2bb49bd0973.bindTooltip(
+                `<div>
+                     Makueni — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1bdd8ef21c9a9ea9a605b767c93d6571 = L.circleMarker(
+                [3.903, 42.228],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_82aab141d4ef352839e71d3c57e1a813 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_a216e07b577d70a708430c6347ff4e73 = $(`<div id="html_a216e07b577d70a708430c6347ff4e73" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Mandera</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_82aab141d4ef352839e71d3c57e1a813.setContent(html_a216e07b577d70a708430c6347ff4e73);
+            
+        
+
+        circle_marker_1bdd8ef21c9a9ea9a605b767c93d6571.bindPopup(popup_82aab141d4ef352839e71d3c57e1a813)
+        ;
+
+        
+    
+    
+            circle_marker_1bdd8ef21c9a9ea9a605b767c93d6571.bindTooltip(
+                `<div>
+                     Mandera — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7e20ad3a47328d045636ae7aeba0416b = L.circleMarker(
+                [2.328, 37.996],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_950bbeb3ad1b3d7987a04fe84c7e74e1 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_ba20e9f1e4a79005d8b2d754e5853f25 = $(`<div id="html_ba20e9f1e4a79005d8b2d754e5853f25" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Marsabit</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_950bbeb3ad1b3d7987a04fe84c7e74e1.setContent(html_ba20e9f1e4a79005d8b2d754e5853f25);
+            
+        
+
+        circle_marker_7e20ad3a47328d045636ae7aeba0416b.bindPopup(popup_950bbeb3ad1b3d7987a04fe84c7e74e1)
+        ;
+
+        
+    
+    
+            circle_marker_7e20ad3a47328d045636ae7aeba0416b.bindTooltip(
+                `<div>
+                     Marsabit — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d26611c3071a859bda64fcac4fcc4c45 = L.circleMarker(
+                [-0.065, 37.65],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_c2461ba0f06d4c906edd3088e5c87174 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_7bf298c9209f4c1dfe8b360ad5a592bc = $(`<div id="html_7bf298c9209f4c1dfe8b360ad5a592bc" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Meru</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_c2461ba0f06d4c906edd3088e5c87174.setContent(html_7bf298c9209f4c1dfe8b360ad5a592bc);
+            
+        
+
+        circle_marker_d26611c3071a859bda64fcac4fcc4c45.bindPopup(popup_c2461ba0f06d4c906edd3088e5c87174)
+        ;
+
+        
+    
+    
+            circle_marker_d26611c3071a859bda64fcac4fcc4c45.bindTooltip(
+                `<div>
+                     Meru — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7520de79bfcb2ec7f7a038847f7f8fdf = L.circleMarker(
+                [-1.058, 34.481],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_c1b0e0feab580b5eadc34a66e1ac1a58 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_02601f29cbde0a5195635db6700b15c5 = $(`<div id="html_02601f29cbde0a5195635db6700b15c5" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Migori</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_c1b0e0feab580b5eadc34a66e1ac1a58.setContent(html_02601f29cbde0a5195635db6700b15c5);
+            
+        
+
+        circle_marker_7520de79bfcb2ec7f7a038847f7f8fdf.bindPopup(popup_c1b0e0feab580b5eadc34a66e1ac1a58)
+        ;
+
+        
+    
+    
+            circle_marker_7520de79bfcb2ec7f7a038847f7f8fdf.bindTooltip(
+                `<div>
+                     Migori — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_30f8e8cd2d3296d795135d933ecf1270 = L.circleMarker(
+                [-4.0435, 39.6682],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_3e072be0df4a03245765c3e181af39aa = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_514e5ebb3a8a6687991fdd6791e32f47 = $(`<div id="html_514e5ebb3a8a6687991fdd6791e32f47" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Mombasa</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_3e072be0df4a03245765c3e181af39aa.setContent(html_514e5ebb3a8a6687991fdd6791e32f47);
+            
+        
+
+        circle_marker_30f8e8cd2d3296d795135d933ecf1270.bindPopup(popup_3e072be0df4a03245765c3e181af39aa)
+        ;
+
+        
+    
+    
+            circle_marker_30f8e8cd2d3296d795135d933ecf1270.bindTooltip(
+                `<div>
+                     Mombasa — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e845bfa1c3d554e7c8dfc73541991b31 = L.circleMarker(
+                [-0.7167, 36.9333],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_d34419fbda8647a977daa9f1e0eccded = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_03c3ed929571f4c0eb2d4212d5c517d2 = $(`<div id="html_03c3ed929571f4c0eb2d4212d5c517d2" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Murang'a</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_d34419fbda8647a977daa9f1e0eccded.setContent(html_03c3ed929571f4c0eb2d4212d5c517d2);
+            
+        
+
+        circle_marker_e845bfa1c3d554e7c8dfc73541991b31.bindPopup(popup_d34419fbda8647a977daa9f1e0eccded)
+        ;
+
+        
+    
+    
+            circle_marker_e845bfa1c3d554e7c8dfc73541991b31.bindTooltip(
+                `<div>
+                     Murang'a — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_70e507b2e201fa377e12853a7e65f5eb = L.circleMarker(
+                [-1.286389, 36.817223],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_5872fe4dd8d56a83dc4aa4281c2efac0 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_dc9f035356a844c9f737eb1a7047dbe6 = $(`<div id="html_dc9f035356a844c9f737eb1a7047dbe6" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Nairobi</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_5872fe4dd8d56a83dc4aa4281c2efac0.setContent(html_dc9f035356a844c9f737eb1a7047dbe6);
+            
+        
+
+        circle_marker_70e507b2e201fa377e12853a7e65f5eb.bindPopup(popup_5872fe4dd8d56a83dc4aa4281c2efac0)
+        ;
+
+        
+    
+    
+            circle_marker_70e507b2e201fa377e12853a7e65f5eb.bindTooltip(
+                `<div>
+                     Nairobi — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_fda8643dcc656c1ebba5c10754c9cc3d = L.circleMarker(
+                [-0.3031, 36.08],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_bdaaf688d7f2c1dcbbf3bb80bacc4897 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_f6461efb7724e6af509b88ea093b51ed = $(`<div id="html_f6461efb7724e6af509b88ea093b51ed" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Nakuru</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_bdaaf688d7f2c1dcbbf3bb80bacc4897.setContent(html_f6461efb7724e6af509b88ea093b51ed);
+            
+        
+
+        circle_marker_fda8643dcc656c1ebba5c10754c9cc3d.bindPopup(popup_bdaaf688d7f2c1dcbbf3bb80bacc4897)
+        ;
+
+        
+    
+    
+            circle_marker_fda8643dcc656c1ebba5c10754c9cc3d.bindTooltip(
+                `<div>
+                     Nakuru — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c2f4438a0523d828044c5caa7307e397 = L.circleMarker(
+                [0.251, 34.78],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_3ea707db95d7df8859ae085cd6fd225f = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_42149f7b483a00f1a6477146f6d437e2 = $(`<div id="html_42149f7b483a00f1a6477146f6d437e2" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Nandi</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_3ea707db95d7df8859ae085cd6fd225f.setContent(html_42149f7b483a00f1a6477146f6d437e2);
+            
+        
+
+        circle_marker_c2f4438a0523d828044c5caa7307e397.bindPopup(popup_3ea707db95d7df8859ae085cd6fd225f)
+        ;
+
+        
+    
+    
+            circle_marker_c2f4438a0523d828044c5caa7307e397.bindTooltip(
+                `<div>
+                     Nandi — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_5b1ed9eb9b4f9dca62acd9f43bdac5e9 = L.circleMarker(
+                [-1.1167, 35.6],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_c61ee668f472d429fe7585ac06d6d2a2 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_2159611aef92de7697e05931230994f7 = $(`<div id="html_2159611aef92de7697e05931230994f7" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Narok</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_c61ee668f472d429fe7585ac06d6d2a2.setContent(html_2159611aef92de7697e05931230994f7);
+            
+        
+
+        circle_marker_5b1ed9eb9b4f9dca62acd9f43bdac5e9.bindPopup(popup_c61ee668f472d429fe7585ac06d6d2a2)
+        ;
+
+        
+    
+    
+            circle_marker_5b1ed9eb9b4f9dca62acd9f43bdac5e9.bindTooltip(
+                `<div>
+                     Narok — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b1b539b28c609647b30085def6d097fe = L.circleMarker(
+                [-0.6845, 34.954],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_aa09670b2f2de71dccdc9279d1d68fd5 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_88e59d0938a669f7ffcfff65e3f8762d = $(`<div id="html_88e59d0938a669f7ffcfff65e3f8762d" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Nyamira</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_aa09670b2f2de71dccdc9279d1d68fd5.setContent(html_88e59d0938a669f7ffcfff65e3f8762d);
+            
+        
+
+        circle_marker_b1b539b28c609647b30085def6d097fe.bindPopup(popup_aa09670b2f2de71dccdc9279d1d68fd5)
+        ;
+
+        
+    
+    
+            circle_marker_b1b539b28c609647b30085def6d097fe.bindTooltip(
+                `<div>
+                     Nyamira — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b8d67e102e4944bde09116e562ad4842 = L.circleMarker(
+                [-0.4167, 36.95],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_b39ef5ef238bcdee5508e0b255a1a5ec = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_bbd2c9462833fc5d4807c753fed5b478 = $(`<div id="html_bbd2c9462833fc5d4807c753fed5b478" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Nyeri</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_b39ef5ef238bcdee5508e0b255a1a5ec.setContent(html_bbd2c9462833fc5d4807c753fed5b478);
+            
+        
+
+        circle_marker_b8d67e102e4944bde09116e562ad4842.bindPopup(popup_b39ef5ef238bcdee5508e0b255a1a5ec)
+        ;
+
+        
+    
+    
+            circle_marker_b8d67e102e4944bde09116e562ad4842.bindTooltip(
+                `<div>
+                     Nyeri — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c95060013f2197aabd0d456fbe6e9054 = L.circleMarker(
+                [0.621, 37.343],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_b0dc3bbaf9b611a53a82116654b9d508 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_5042d4eba833a470274936e1efcdf439 = $(`<div id="html_5042d4eba833a470274936e1efcdf439" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Samburu</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_b0dc3bbaf9b611a53a82116654b9d508.setContent(html_5042d4eba833a470274936e1efcdf439);
+            
+        
+
+        circle_marker_c95060013f2197aabd0d456fbe6e9054.bindPopup(popup_b0dc3bbaf9b611a53a82116654b9d508)
+        ;
+
+        
+    
+    
+            circle_marker_c95060013f2197aabd0d456fbe6e9054.bindTooltip(
+                `<div>
+                     Samburu — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_44b9afc89dece35590cc1c6dddc8a2df = L.circleMarker(
+                [-0.201, 34.286],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_655c38522e58de389af6a17edc0ea5c9 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_bf5cc82237609ae4daf73089b62d05c8 = $(`<div id="html_bf5cc82237609ae4daf73089b62d05c8" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Siaya</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_655c38522e58de389af6a17edc0ea5c9.setContent(html_bf5cc82237609ae4daf73089b62d05c8);
+            
+        
+
+        circle_marker_44b9afc89dece35590cc1c6dddc8a2df.bindPopup(popup_655c38522e58de389af6a17edc0ea5c9)
+        ;
+
+        
+    
+    
+            circle_marker_44b9afc89dece35590cc1c6dddc8a2df.bindTooltip(
+                `<div>
+                     Siaya — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_db5c20a035cdbfc488dba6748df0de1c = L.circleMarker(
+                [-3.4, 38.383],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_e1e98bc514ef8693b6446fff18d4de21 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_708f1cb16dc586873ac57cd404b7e6bb = $(`<div id="html_708f1cb16dc586873ac57cd404b7e6bb" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Taita-Taveta</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_e1e98bc514ef8693b6446fff18d4de21.setContent(html_708f1cb16dc586873ac57cd404b7e6bb);
+            
+        
+
+        circle_marker_db5c20a035cdbfc488dba6748df0de1c.bindPopup(popup_e1e98bc514ef8693b6446fff18d4de21)
+        ;
+
+        
+    
+    
+            circle_marker_db5c20a035cdbfc488dba6748df0de1c.bindTooltip(
+                `<div>
+                     Taita-Taveta — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9e1fd23c3eafccd3fb034089e6dcc401 = L.circleMarker(
+                [-2.006, 40.14],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_8cfeb3df07723f2eef4b773912cc99d9 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_55ed980f91bab8c666a588498b63cf60 = $(`<div id="html_55ed980f91bab8c666a588498b63cf60" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Tana River</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_8cfeb3df07723f2eef4b773912cc99d9.setContent(html_55ed980f91bab8c666a588498b63cf60);
+            
+        
+
+        circle_marker_9e1fd23c3eafccd3fb034089e6dcc401.bindPopup(popup_8cfeb3df07723f2eef4b773912cc99d9)
+        ;
+
+        
+    
+    
+            circle_marker_9e1fd23c3eafccd3fb034089e6dcc401.bindTooltip(
+                `<div>
+                     Tana River — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e9d41c7bba02a02aa0b13e8d726fcc37 = L.circleMarker(
+                [-0.644, 37.676],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_41705e10164cd05db56da22df2dcb14b = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_7970ff83acda98e137cc3b9498e48714 = $(`<div id="html_7970ff83acda98e137cc3b9498e48714" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Tharaka-Nithi</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_41705e10164cd05db56da22df2dcb14b.setContent(html_7970ff83acda98e137cc3b9498e48714);
+            
+        
+
+        circle_marker_e9d41c7bba02a02aa0b13e8d726fcc37.bindPopup(popup_41705e10164cd05db56da22df2dcb14b)
+        ;
+
+        
+    
+    
+            circle_marker_e9d41c7bba02a02aa0b13e8d726fcc37.bindTooltip(
+                `<div>
+                     Tharaka-Nithi — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_093578c15aa57cbed4889d8ca79f0c46 = L.circleMarker(
+                [1.026, 34.95],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_0ae2ffb5fddb120fe683b8142a2e74da = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_a86ba79178987ac264ce68bea229d224 = $(`<div id="html_a86ba79178987ac264ce68bea229d224" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Trans Nzoia</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_0ae2ffb5fddb120fe683b8142a2e74da.setContent(html_a86ba79178987ac264ce68bea229d224);
+            
+        
+
+        circle_marker_093578c15aa57cbed4889d8ca79f0c46.bindPopup(popup_0ae2ffb5fddb120fe683b8142a2e74da)
+        ;
+
+        
+    
+    
+            circle_marker_093578c15aa57cbed4889d8ca79f0c46.bindTooltip(
+                `<div>
+                     Trans Nzoia — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_4d53b13730404d36f1b5467d288fb58e = L.circleMarker(
+                [3.192, 35.473],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_d2bf5727711049c170e1248422eaebcd = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_c2d443d01d0dff371eb1499acdc33a24 = $(`<div id="html_c2d443d01d0dff371eb1499acdc33a24" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Turkana</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_d2bf5727711049c170e1248422eaebcd.setContent(html_c2d443d01d0dff371eb1499acdc33a24);
+            
+        
+
+        circle_marker_4d53b13730404d36f1b5467d288fb58e.bindPopup(popup_d2bf5727711049c170e1248422eaebcd)
+        ;
+
+        
+    
+    
+            circle_marker_4d53b13730404d36f1b5467d288fb58e.bindTooltip(
+                `<div>
+                     Turkana — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c37878a100af6a5e95583084c90484b7 = L.circleMarker(
+                [0.52, 35.268],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_4489fce438e914db6c06d1d4e909c87c = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_f1bad8581ff3ccf18036103d5629503c = $(`<div id="html_f1bad8581ff3ccf18036103d5629503c" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Uasin Gishu</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_4489fce438e914db6c06d1d4e909c87c.setContent(html_f1bad8581ff3ccf18036103d5629503c);
+            
+        
+
+        circle_marker_c37878a100af6a5e95583084c90484b7.bindPopup(popup_4489fce438e914db6c06d1d4e909c87c)
+        ;
+
+        
+    
+    
+            circle_marker_c37878a100af6a5e95583084c90484b7.bindTooltip(
+                `<div>
+                     Uasin Gishu — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_4e9107e29b5d6426f0e65bec1efff353 = L.circleMarker(
+                [0.033, 34.733],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_f5107f81c3d4d00ecf37920a686025f0 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_635ae3f5f7f1542ecc256d1d066dcf4d = $(`<div id="html_635ae3f5f7f1542ecc256d1d066dcf4d" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Vihiga</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_f5107f81c3d4d00ecf37920a686025f0.setContent(html_635ae3f5f7f1542ecc256d1d066dcf4d);
+            
+        
+
+        circle_marker_4e9107e29b5d6426f0e65bec1efff353.bindPopup(popup_f5107f81c3d4d00ecf37920a686025f0)
+        ;
+
+        
+    
+    
+            circle_marker_4e9107e29b5d6426f0e65bec1efff353.bindTooltip(
+                `<div>
+                     Vihiga — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_14a7e72a3fedb5d9ba48f09cb253a6b0 = L.circleMarker(
+                [1.757, 40.065],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_c2bbc6b747c18e757c7d65849f90ac94 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_326a9f4a5832bc2e576a44594a48e426 = $(`<div id="html_326a9f4a5832bc2e576a44594a48e426" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Wajir</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_c2bbc6b747c18e757c7d65849f90ac94.setContent(html_326a9f4a5832bc2e576a44594a48e426);
+            
+        
+
+        circle_marker_14a7e72a3fedb5d9ba48f09cb253a6b0.bindPopup(popup_c2bbc6b747c18e757c7d65849f90ac94)
+        ;
+
+        
+    
+    
+            circle_marker_14a7e72a3fedb5d9ba48f09cb253a6b0.bindTooltip(
+                `<div>
+                     Wajir — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2939fed3bc9a30071a73ace95aaf2358 = L.circleMarker(
+                [1.194, 35.252],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_c5a98834bfa53f4df5d6e0e524bf951c = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_78278c6cb97c6d50bf53cf87ea478f33 = $(`<div id="html_78278c6cb97c6d50bf53cf87ea478f33" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>West Pokot</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_c5a98834bfa53f4df5d6e0e524bf951c.setContent(html_78278c6cb97c6d50bf53cf87ea478f33);
+            
+        
+
+        circle_marker_2939fed3bc9a30071a73ace95aaf2358.bindPopup(popup_c5a98834bfa53f4df5d6e0e524bf951c)
+        ;
+
+        
+    
+    
+            circle_marker_2939fed3bc9a30071a73ace95aaf2358.bindTooltip(
+                `<div>
+                     West Pokot — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_5a06e82d39573c9c4a347c1a75e0a339 = L.circleMarker(
+                [0.306, 35.862],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_904cf434e52426ebddc22363e9019444 = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_2a67bb097a3a47f660fb206b14e1a632 = $(`<div id="html_2a67bb097a3a47f660fb206b14e1a632" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Baraingo</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_904cf434e52426ebddc22363e9019444.setContent(html_2a67bb097a3a47f660fb206b14e1a632);
+            
+        
+
+        circle_marker_5a06e82d39573c9c4a347c1a75e0a339.bindPopup(popup_904cf434e52426ebddc22363e9019444)
+        ;
+
+        
+    
+    
+            circle_marker_5a06e82d39573c9c4a347c1a75e0a339.bindTooltip(
+                `<div>
+                     Baraingo — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_dba0b6dcaa1b325c6e413ffd5974b22d = L.circleMarker(
+                [-1.206, 36.825],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_239682218c946022bb022d201656d75a);
+        
+    
+        var popup_8243e6fd89e42405f9fb322e3e6ffb5d = L.popup({"maxWidth": 240});
+
+        
+            
+                var html_95037f28a490e07f84cc8cace0164dc0 = $(`<div id="html_95037f28a490e07f84cc8cace0164dc0" style="width: 100.0%; height: 100.0%;"><div style='font-family:sans-serif;min-width:160px'><b style='font-size:14px'>Kiambu Central</b><br><span style='color:green;font-weight:bold'>🟢 LOW</span><br><hr style='margin:4px 0'>FRI Score: <b>26.27</b> / 100<br>7-day rain: <b>0.0 mm</b><br>Peak day: <b>0.0 mm</b><br>Soil moisture: <b>0.200 m³/m³</b><br>14-day antecedent: <b>0.0 mm</b><br>ML flood probability: <b>0.455</b></div></div>`)[0];
+                popup_8243e6fd89e42405f9fb322e3e6ffb5d.setContent(html_95037f28a490e07f84cc8cace0164dc0);
+            
+        
+
+        circle_marker_dba0b6dcaa1b325c6e413ffd5974b22d.bindPopup(popup_8243e6fd89e42405f9fb322e3e6ffb5d)
+        ;
+
+        
+    
+    
+            circle_marker_dba0b6dcaa1b325c6e413ffd5974b22d.bindTooltip(
+                `<div>
+                     Kiambu Central — LOW (FRI: 26.27)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
