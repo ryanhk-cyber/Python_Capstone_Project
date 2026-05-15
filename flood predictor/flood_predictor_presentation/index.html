@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flood Predictor — Module Presentation</title>
+  <style>
+    :root{
+      --bg:#f7f4ef;
+      --ink:#0b0b0b;
+      --muted:#2b2b2b;
+      --paper:#ffffff;
+      --border:#0b0b0b;
+      --shadow: 6px 6px 0 rgba(0,0,0,0.25);
+      --shadow-sm: 3px 3px 0 rgba(0,0,0,0.25);
+      --low:#2ecc71;
+      --medium:#f39c12;
+      --high:#e74c3c;
+      --critical:#7b241c;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.035) 0, rgba(0,0,0,0.035) 1px, transparent 1px, transparent 14px),
+        var(--bg);
+      color:var(--ink);
+    }
+    .app{
+      max-width:1100px;
+      margin:0 auto;
+      padding:20px 16px 28px;
+    }
+    header{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      justify-content:space-between;
+      margin-bottom:14px;
+    }
+    .brand{
+      background:var(--paper);
+      border:3px solid var(--border);
+      box-shadow:var(--shadow-sm);
+      padding:14px 16px;
+      border-radius:14px;
+      position:relative;
+      overflow:hidden;
+      flex:1;
+      min-width:280px;
+    }
+    .brand::after{
+      content:"";
+      position:absolute;
+      inset:-40px -70px auto auto;
+      width:160px;
+      height:160px;
+      border:3px dashed rgba(0,0,0,0.18);
+      transform: rotate(14deg);
+      pointer-events:none;
+    }
+    .title{
+      font-weight:900;
+      font-size: clamp(22px, 3.2vw, 34px);
+      line-height:1.05;
+      letter-spacing:-0.02em;
+      margin:0;
+    }
+    .subtitle{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-weight:700;
+      font-size: 14px;
+    }
+    .controls{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:flex-start;
+      justify-content:flex-end;
+    }
+    .btn{
+      appearance:none;
+      border:3px solid var(--border);
+      background:var(--paper);
+      padding:10px 12px;
+      border-radius:12px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:var(--shadow-sm);
+      transition: transform 120ms ease, box-shadow 120ms ease;
+      user-select:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    .btn:active{ transform: translate(2px,2px); box-shadow: 1px 1px 0 rgba(0,0,0,0.25); }
+    .btn[disabled]{ opacity:0.55; cursor:not-allowed; }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size:12px;
+      border:2px solid rgba(0,0,0,0.7);
+      padding:3px 8px;
+      border-radius:10px;
+      background: rgba(255,255,255,0.7);
+      font-weight:900;
+    }
+    .layout{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media (max-width: 880px){
+      .layout{ grid-template-columns: 1fr; }
+      .controls{ justify-content:flex-start; }
+    }
+    .sidebar{
+      background:var(--paper);
+      border:3px solid var(--border);
+      border-radius:14px;
+      box-shadow:var(--shadow-sm);
+      padding:14px;
+      position:sticky;
+      top:14px;
+    }
+    @media (max-width: 880px){
+      .sidebar{ position:relative; top:auto; }
+    }
+    .sidebar h2{
+      margin:0 0 10px;
+      font-size:16px;
+      font-weight:1000;
+      letter-spacing:-0.02em;
+    }
+    .slide-list{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      max-height: 62vh;
+      overflow:auto;
+      padding-right:4px;
+    }
+    .slide-item{
+      text-align:left;
+      border:3px solid rgba(0,0,0,0.12);
+      background: rgba(255,255,255,0.75);
+      border-radius:12px;
+      padding:10px 10px;
+      cursor:pointer;
+      font-weight:900;
+      line-height:1.1;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      transition: border-color 120ms ease, transform 120ms ease;
+    }
+    .slide-item:hover{ transform: translateY(-1px); border-color: rgba(0,0,0,0.35); }
+    .slide-item[aria-current="true"]{
+      border-color: var(--border);
+      background: white;
+    }
+    .badge{
+      min-width:42px;
+      height:28px;
+      border:3px solid var(--border);
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12px;
+      background:#fff;
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.12);
+    }
+    .slide-item .name{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .slide-item .name span:first-child{
+      font-size:13px;
+      font-weight:1000;
+    }
+    .slide-item .name span:last-child{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:800;
+    }
+    .main{
+      background:var(--paper);
+      border:3px solid var(--border);
+      border-radius:14px;
+      box-shadow: var(--shadow);
+      padding:18px 18px 16px;
+      min-height: 520px;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+    .main::before{
+      content:"";
+      position:absolute;
+      inset:auto -90px -110px auto;
+      width:260px;
+      height:260px;
+      border-radius: 48px;
+      background: rgba(0,0,0,0.04);
+      border:3px dashed rgba(0,0,0,0.12);
+      transform: rotate(16deg);
+      pointer-events:none;
+    }
+    .slide{
+      display:none;
+      position:relative;
+      z-index:1;
+      animation: popIn 220ms ease-out;
+    }
+    .slide[aria-hidden="false"]{ display:block; }
+    @keyframes popIn{
+      from{ transform: translateY(6px); opacity:0; }
+      to{ transform: translateY(0); opacity:1; }
+    }
+    .slide-top{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      justify-content:space-between;
+      margin-bottom:10px;
+    }
+    .slide-number{ margin-bottom:10px; }
+    .chip{
+      border:3px solid var(--border);
+      border-radius:999px;
+      padding:7px 12px;
+      background:#fff;
+      font-weight:1000;
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.12);
+      font-size:13px;
+      display:inline-block;
+    }
+    .slide h1{
+      margin:0;
+      font-weight:1100;
+      letter-spacing:-0.02em;
+      font-size: clamp(22px, 3vw, 34px);
+      line-height:1.05;
+    }
+    .meta{
+      font-weight:900;
+      color:var(--muted);
+      margin-top:8px;
+      font-size:13px;
+    }
+    .content{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    @media (max-width: 980px){
+      .content{ grid-template-columns: 1fr; }
+    }
+    .card{
+      border:3px solid var(--border);
+      border-radius:14px;
+      padding:14px 14px 12px;
+      background:white;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.12);
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:14px;
+      font-weight:1000;
+      letter-spacing:-0.01em;
+    }
+    .card ul{
+      margin:0;
+      padding-left:18px;
+      font-weight:850;
+      color:#101010;
+      line-height:1.35;
+    }
+    .card li{ margin:6px 0; }
+    .callout{
+      border:3px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+      background: rgba(0,0,0,0.02);
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.12);
+      margin-top:12px;
+    }
+    .callout .big{
+      font-weight:1200;
+      font-size:18px;
+      margin:0 0 8px;
+      letter-spacing:-0.02em;
+    }
+    .callout p{
+      margin:0;
+      font-weight:850;
+      color:#1a1a1a;
+      line-height:1.45;
+    }
+    footer{
+      margin-top:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      color:var(--muted);
+      font-weight:900;
+      font-size:13px;
+    }
+    .progressline{
+      height:10px;
+      flex:1;
+      border:3px solid var(--border);
+      border-radius:999px;
+      background: rgba(0,0,0,0.05);
+      overflow:hidden;
+      max-width:420px;
+    }
+    .progressfill{
+      height:100%;
+      width:0%;
+      background: #fff;
+      border-right:3px solid rgba(0,0,0,0.25);
+      transition: width 220ms ease;
+      position:relative;
+    }
+    .progressfill::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: repeating-linear-gradient(90deg, rgba(0,0,0,0.18) 0 8px, transparent 8px 16px);
+      opacity:0.18;
+      pointer-events:none;
+    }
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); border:0;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand">
+        <h1 class="title">Flood Predictor</h1>
+        <div class="subtitle">Module walkthrough deck • uses your code modules</div>
+      </div>
+      <div class="controls" aria-label="Slide controls">
+        <button class="btn" id="prevBtn" type="button" aria-label="Previous slide">
+          ◀ Prev <span class="kbd">←</span>
+        </button>
+        <button class="btn" id="nextBtn" type="button" aria-label="Next slide">
+          Next ▶ <span class="kbd">→</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Slide list">
+        <h2>Slides</h2>
+        <div class="slide-list" id="slideList"></div>
+        <div style="margin-top:10px; font-weight:900; color:var(--muted); font-size:12px;">
+          Tip: use <span class="kbd">←</span> / <span class="kbd">→</span> keys.
+        </div>
+      </aside>
+
+      <main class="main" aria-live="polite">
+        <section id="slides"></section>
+      </main>
+    </div>
+
+    <footer>
+      <div>Slide <span id="slideIndex">1</span> / <span id="slideTotal">1</span></div>
+      <div class="progressline" aria-hidden="true"><div class="progressfill" id="progressFill"></div></div>
+      <div id="timeHint" style="white-space:nowrap;">Press ESC to exit full-screen</div>
+    </footer>
+  </div>
+
+  <script>
+    // Presentation content (increased depth per request)
+    const slides = [
+      {
+        title: "Title",
+        meta: "Flood Predictor • Module walkthrough (more detail)",
+        left: { heading: "What you’ll cover", items: [
+          "How live rainfall + soil moisture are fetched and turned into features",
+          "How the Flood Risk Index (FRI) score becomes LOW/MEDIUM/HIGH/CRITICAL",
+          "How the Random Forest adds a probability layer (ML flood probability)",
+          "How results become outputs: map, charts, alerts, and a text report"
+        ]},
+        right: { heading: "What you’ll end with", items: [
+          "A risk level per county (ranked by FRI score)",
+          "An ML probability per county to complement rule-based FRI",
+          "An interactive map (folium) with popups and a legend",
+          "Visual charts + an alerts table for HIGH/CRITICAL counties"
+        ]},
+      },
+      {
+        title: "System overview (pipeline)",
+        meta: "main_1.py orchestrates the flow",
+        left: { heading: "End-to-end process", items: [
+          "1) data_loader: fetch rainfall forecast + soil moisture + antecedent rainfall",
+          "2) risk_calculator: compute component scores → weighted FRI → risk level",
+          "3) flood_predictor: train/load Random Forest and compute ml_flood_prob",
+          "4) visualizer: build folium map + matplotlib charts",
+          "5) alert_system: print console summary + generate a text report"
+        ]},
+        right: { heading: "What makes it easy to demo", items: [
+          "Clear module boundaries (loader / scoring / ML / visuals / alerts)",
+          "main merges DataFrames so every module can focus on one job",
+          "Robustness: if API calls fail, data_loader uses fallback values",
+          "Outputs are saved automatically to configured files"
+        ]},
+      },
+      {
+        title: "Orchestrator: main_1.py",
+        meta: "progress UI + module sequencing",
+        left: { heading: "What it does (step-by-step)", items: [
+          "Creates needed directories (outputs/, data/) via setup()",
+          "Shows progress spinners for each pipeline stage (rich Progress)",
+          "Imports and runs modules lazily inside the progress blocks",
+          "Merges ML predictions back into the same DataFrame (risk_df)",
+          "Calls run_alerts(risk_df) after visualization outputs are created"
+        ]},
+        right: { heading: "Presentation message you can say", items: [
+          "“Think of main_1.py as the conductor: it keeps the modules in order.”",
+          "“Each module returns/consumes risk_df, so handoffs stay consistent.”"
+        ]},
+      },
+      {
+        title: "Data loading: data_loader.py",
+        meta: "Fetch → parse → aggregate into a DataFrame",
+        left: { heading: "External data + features", items: [
+          "fetch_forecast(lat, lon): daily precipitation sum + hourly soil moisture",
+          "fetch_antecedent(lat, lon): daily precipitation sum for the antecedent window",
+          "Uses Open-Meteo endpoints (forecast + archive) with a timezone setting",
+          "Loops through KENYA_COUNTIES using lat/lon stored in the county config"
+        ]},
+        right: { heading: "Parsing, safety, caching", items: [
+          "parse_forecast extracts: forecast_7day_mm, peak_daily_mm, and mean soil moisture",
+          "parse_antecedent computes antecedent_14day_mm as a sum",
+          "fallback_record returns safe defaults if requests/parsing fail",
+          "Caching: load_all_counties(use_cache=True) writes daily cache to DATA_CACHE_FILE"
+        ]},
+      },
+      {
+        title: "Scoring: risk_calculator.py",
+        meta: "Flood Risk Index (FRI) → risk levels",
+        left: { heading: "How FRI is built (deterministic)", items: [
+          "Each signal gets a 0–1 normalization via score_* functions",
+          "Soil moisture: score_soil_moisture() caps at the saturated threshold",
+          "Antecedent: score_antecedent() scales 14-day rainfall to alert threshold",
+          "Peak intensity: score_peak() scales max daily rain to extreme threshold",
+          "Terrain & dataset context: elevation, slope, hist_flood, near_water, drainage risk"
+        ]},
+        right: { heading: "Final decision (risk levels)", items: [
+          "fri_score = weighted sum of component scores × 100 (then rounded)",
+          "get_risk_level() maps FRI ranges to LOW / MEDIUM / HIGH / CRITICAL",
+          "Each risk level gets a configured color + emoji for consistent UI/UX",
+          "Output is a sorted DataFrame (highest fri_score first)"
+        ]},
+      },
+      {
+        title: "ML layer: flood_predictor.py",
+        meta: "RandomForestClassifier → ml_flood_prob",
+        left: { heading: "Training pipeline", items: [
+          "build_training_data() pulls labeled samples from data.kenya_flood_drainage_dataset",
+          "extract_features() converts dataset + county attributes into numeric features",
+          "train_model() uses StandardScaler + RandomForestClassifier",
+          "Model bundle is saved with joblib to MODEL_FILE for reuse",
+          "Supports force=False to avoid retraining every run"
+        ]},
+        right: { heading: "Prediction pipeline", items: [
+          "predict_flood_probability(risk_df) transforms features using the same scaler",
+          "clf.predict_proba() provides class probabilities",
+          "ml_flood_prob is computed by combining selected probability classes (code logic)",
+          "Returns ml_flood_prob + ml_predicted_level per county",
+          "main_1 merges these ML columns into the FRI-based risk_df"
+        ]},
+      },
+      {
+        title: "Visualization: visualizer.py",
+        meta: "Map + charts from final risk_df",
+        left: { heading: "Interactive map (folium)", items: [
+          "create_risk_map() builds a folium.Map centered over Kenya",
+          "Each county is a CircleMarker with radius based on risk_level",
+          "Popup shows: county, emoji/level, FRI score, forecast_7day_mm, peak_daily_mm, soil moisture, antecedent, ML probability",
+          "A legend is added to the map for quick interpretation",
+          "Map saves to MAP_HTML_FILE and opens in any browser"
+        ]},
+        right: { heading: "Charts (matplotlib)", items: [
+          "create_risk_chart(): horizontal bar for top 20 counties by fri_score",
+          "create_forecast_chart(): 7-day rainfall curves for HIGH/CRITICAL counties",
+          "Adds heavy/extreme reference lines (RAINFALL_THRESHOLDS)",
+          "All charts are saved as files from OUTPUT_DIR"
+        ]},
+      },
+      {
+        title: "Alerts & reporting: alert_system.py",
+        meta: "Console summary + text report",
+        left: { heading: "What alerts show", items: [
+          "summary_panel() counts counties by risk_level and prints a rich panel",
+          "alert_table() filters to CRITICAL + HIGH counties",
+          "Shows rainfall metrics + FRI score + ML flood probability when available",
+          "Computes worst sub-county using get_worst_subcounties(county, top_n=1)"
+        ]},
+        right: { heading: "How report is produced", items: [
+          "save_report() writes a human-readable text report to REPORT_TXT_FILE",
+          "Includes soil moisture + antecedent + ML probability + worst sub-county notes",
+          "run_alerts() ties the summary, table, and saved report together",
+          "Result: the system produces both “demo output” and “documentation output”"
+        ]},
+      },
+      {
+        title: "How modules connect",
+        meta: "the contract is the risk_df DataFrame",
+        left: { heading: "Data flow (contracts between modules)", items: [
+          "data_loader → rainfall_df (lat, lon, forecast_7day_mm, peak_daily_mm, soil_moisture, antecedent_14day_mm, daily_forecast)",
+          "risk_calculator → risk_df (adds fri_score, risk_level, risk_color, risk_emoji, component scores)",
+          "flood_predictor → predictions_df (adds ml_flood_prob, ml_predicted_level)",
+          "main_1: risk_df.merge(predictions, on='county', how='left')",
+          "visualizer + alert_system read the final risk_df for outputs"
+        ]},
+        right: { heading: "One line to memorize", items: [
+          "“main_1 is the glue: it merges ML output into the rule-based risk_df, then visualizes + alerts.”"
+        ]},
+      },
+      {
+        title: "Key takeaways + suggested demo",
+        meta: "why this architecture is easy to present",
+        left: { heading: "Strengths you can highlight", items: [
+          "Separation of concerns: loader / scoring / ML / visuals / alerts are independent modules",
+          "Robustness: caching reduces API load; fallback_record prevents crashes",
+          "Explainability: FRI scoring is rule-based and transparent (score_* + weights)",
+          "Decision support: ML adds probability context for HIGH/CRITICAL prioritization",
+          "Actionable outputs: interactive map + charts + alerts table + text report"
+        ]},
+        right: { heading: "Recommended demo order (fast & clear)", items: [
+          "Start: run main_1.py and observe progress spinners",
+          "Show: open the generated map HTML (interactive)",
+          "Show: top-20 risk chart to explain ranking by FRI",
+          "Show: 7-day forecast chart for HIGH/CRITICAL counties",
+          "End: open the saved text report and read one county’s summary"
+        ]},
+      },
+      {
+        title: "Q&A",
+        meta: "questions from the audience",
+        left: { heading: "Likely questions", items: [
+          "How do threshold values (RAINFALL_THRESHOLDS / SOIL_MOISTURE_THRESHOLDS) change risk results?",
+          "Which variables feed the Random Forest model? (extract_features() details)",
+          "How is antecedent rainfall calculated? (parse_antecedent + ANTECEDENT_DAYS)",
+          "What happens if Open-Meteo API fails? (fallback_record)",
+          "How do FRI and ML complement each other during prioritization?"
+        ]},
+        right: { heading: "Concise answers you can say", items: [
+          "FRI: transparent weighted scoring from rule-based score_* functions",
+          "ML: learned probability layer from labeled dataset; gives ml_flood_prob + predicted level",
+          "Outputs: risk_df drives map/chart generation and alert reporting",
+          "Caching + fallback: makes the system reliable for demos"
+        ]},
+      }
+    ];
+
+    const slidesRoot = document.getElementById('slides');
+    const slideList = document.getElementById('slideList');
+    const slideIndexEl = document.getElementById('slideIndex');
+    const slideTotalEl = document.getElementById('slideTotal');
+    const progressFill = document.getElementById('progressFill');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    slideTotalEl.textContent = String(slides.length);
+
+    function escHtml(s){
+      return String(s)
+        .replaceAll('&','&')
+        .replaceAll('<','<')
+        .replaceAll('>','>')
+        .replaceAll('"','"')
+        .replaceAll("'","&#039;");
+    }
+
+    function render(){
+      slidesRoot.innerHTML = '';
+      slideList.innerHTML = '';
+      slides.forEach((s, idx) => {
+        const slideEl = document.createElement('section');
+        slideEl.className = 'slide';
+        slideEl.setAttribute('aria-hidden', idx === 0 ? 'false' : 'true');
+        slideEl.dataset.index = String(idx);
+
+        const leftItems = (s.left && s.left.items) ? s.left.items : [];
+        const rightItems = (s.right && s.right.items) ? s.right.items : [];
+
+        slideEl.innerHTML = `
+          <div class="slide-top">
+            <div>
+              <div class="slide-number"><span class="chip">Slide ${idx+1}</span></div>
+              <h1>${escHtml(s.title)}</h1>
+              <div class="meta">${s.meta ? escHtml(s.meta) : ''}</div>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="card">
+              <h3>${escHtml((s.left && s.left.heading) || 'Highlights')}</h3>
+              <ul>${leftItems.map(it => `<li>${it}</li>`).join('')}</ul>
+            </div>
+            <div class="card">
+              <h3>${escHtml((s.right && s.right.heading) || 'Details')}</h3>
+              <ul>${rightItems.map(it => `<li>${it}</li>`).join('')}</ul>
+            </div>
+          </div>
+        `;
+        slidesRoot.appendChild(slideEl);
+
+        const itemBtn = document.createElement('button');
+        itemBtn.className = 'slide-item';
+        itemBtn.type = 'button';
+        itemBtn.setAttribute('aria-current', idx === 0 ? 'true' : 'false');
+        itemBtn.addEventListener('click', () => goTo(idx));
+        itemBtn.innerHTML = `
+          <div class="badge">${idx+1}</div>
+          <div class="name">
+            <span>${escHtml(s.title)}</span>
+            <span>Module walkthrough</span>
+          </div>
+        `;
+        slideList.appendChild(itemBtn);
+      });
+    }
+
+    function updateUI(){
+      const current = slidesRoot.querySelector('.slide[aria-hidden="false"]');
+      const idx = Number(current?.dataset.index ?? 0);
+      slideIndexEl.textContent = String(idx + 1);
+      const pct = slides.length <= 1 ? 100 : Math.round((idx / (slides.length - 1)) * 100);
+      progressFill.style.width = pct + '%';
+
+      Array.from(slidesRoot.querySelectorAll('.slide')).forEach((el, i) => {
+        el.setAttribute('aria-hidden', i === idx ? 'false' : 'true');
+      });
+      Array.from(slideList.querySelectorAll('.slide-item')).forEach((el, i) => {
+        el.setAttribute('aria-current', i === idx ? 'true' : 'false');
+      });
+
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === slides.length - 1;
+    }
+
+    function goTo(idx){
+      const slidesEls = Array.from(slidesRoot.querySelectorAll('.slide'));
+      slidesEls.forEach((el, i) => el.setAttribute('aria-hidden', i === idx ? 'false' : 'true'));
+      slideList.querySelectorAll('.slide-item').forEach((el, i) => el.setAttribute('aria-current', i === idx ? 'true' : 'false'));
+      updateUI();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      const currentIdx = Number(slidesRoot.querySelector('.slide[aria-hidden="false"]')?.dataset.index ?? 0);
+      goTo(Math.max(0, currentIdx - 1));
+    });
+    nextBtn.addEventListener('click', () => {
+      const currentIdx = Number(slidesRoot.querySelector('.slide[aria-hidden="false"]')?.dataset.index ?? 0);
+      goTo(Math.min(slides.length - 1, currentIdx + 1));
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      } else if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'Escape') {
+        if (document.fullscreenElement) document.exitFullscreen();
+      }
+    });
+
+    // Optional: click-to-enter fullscreen (useful for presenting)
+    document.addEventListener('dblclick', () => {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+    });
+
+    render();
+    updateUI();
+  </script>
+</body>
+</html>
